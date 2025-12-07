@@ -3,147 +3,284 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reefbytes | Software Engineering & Solutions Development</title>
+    <title>ReefbytesMV | Software Engineering & Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         /* Base Styles */
         :root {
-            --primary: #0066cc;
-            --primary-dark: #004d99;
-            --secondary: #00a86b;
-            --dark: #1a1a1a;
-            --light: #f8f9fa;
-            --gray: #6c757d;
-            --transition: all 0.3s ease;
+            --primary: #2563EB; /* Bright Blue */
+            --primary-dark: #1D4ED8;
+            --primary-light: #3B82F6;
+            --secondary: #0EA5E9; /* Sky/Cyan */
+            --secondary-dark: #0284C7;
+            --accent: #8B5CF6; /* Purple accent */
+            --accent-light: #A78BFA;
+            --dark: #0F172A;
+            --dark-light: #1E293B;
+            --light: #F8FAFC;
+            --gray: #64748B;
+            --gray-light: #E2E8F0;
+            --success: #10B981;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
         }
 
         body {
+            font-family: 'Poppins', sans-serif;
             background-color: var(--light);
             color: var(--dark);
-            line-height: 1.6;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .code-font {
+            font-family: 'Roboto Mono', monospace;
         }
 
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
 
         section {
-            padding: 80px 0;
+            padding: 100px 0;
         }
 
         h1, h2, h3, h4 {
-            margin-bottom: 1rem;
+            font-weight: 700;
             line-height: 1.2;
+            margin-bottom: 1.5rem;
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             position: relative;
         }
 
         h2:after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
+            width: 120px;
             height: 4px;
-            background: var(--primary);
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            color: var(--dark);
         }
 
         p {
             margin-bottom: 1.5rem;
+            color: var(--gray);
+            font-size: 1.05rem;
         }
 
         .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: var(--primary);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 35px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 8px;
             cursor: pointer;
             text-decoration: none;
             font-weight: 600;
+            font-size: 1rem;
             transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover:before {
+            left: 100%;
         }
 
         .btn:hover {
-            background: var(--primary-dark);
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow-lg);
         }
 
         .btn-secondary {
-            background: var(--secondary);
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
         }
 
-        .btn-secondary:hover {
-            background: #008a57;
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
         }
 
         /* Header & Navigation */
         header {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            padding: 15px 0;
         }
 
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
         }
 
+        /* Logo Styling */
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
             text-decoration: none;
         }
 
-        .logo span {
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .logo-icon-inner {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-icon-inner:before {
+            content: '';
+            position: absolute;
+            width: 120%;
+            height: 120%;
+            background: conic-gradient(from 0deg, transparent, var(--secondary), transparent);
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .logo-icon-inner:after {
+            content: '';
+            position: absolute;
+            width: 46px;
+            height: 46px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .logo-icon i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            z-index: 1;
+            position: relative;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-tagline {
+            font-size: 0.85rem;
             color: var(--secondary);
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-family: 'Roboto Mono', monospace;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 30px;
+            gap: 30px;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--dark);
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
             transition: var(--transition);
         }
 
@@ -151,29 +288,66 @@
             color: var(--primary);
         }
 
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
         .hamburger {
             display: none;
             cursor: pointer;
             font-size: 1.5rem;
+            color: var(--primary);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
             color: white;
-            padding: 150px 0 100px;
+            padding: 180px 0 120px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+        }
+
+        .hero-content {
             text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #FFFFFF, var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             max-width: 700px;
-            margin: 0 auto 2rem;
+            margin: 0 auto 3rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         /* About Section */
@@ -182,57 +356,127 @@
         }
 
         .about-content {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
             align-items: center;
-            gap: 50px;
         }
 
-        .about-text {
-            flex: 1;
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 25px;
+            background: var(--light);
+            border-radius: 12px;
+            border: 1px solid var(--gray-light);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-weight: 500;
+            margin-top: 10px;
         }
 
         .about-image {
-            flex: 1;
-            border-radius: 10px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .about-image:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(37, 99, 235, 0.1), rgba(139, 92, 246, 0.1));
+            z-index: 1;
         }
 
         .about-image img {
             width: 100%;
             height: auto;
             display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
         }
 
         /* Services Section */
         .services {
-            background: #f5f7fa;
+            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
         }
 
         .service-card {
             background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
             transition: var(--transition);
-            text-align: center;
+            border: 1px solid var(--gray-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            transform: scaleY(0);
+            transition: var(--transition);
+        }
+
+        .service-card:hover:before {
+            transform: scaleY(1);
         }
 
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
         }
 
         .service-icon {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            color: white;
         }
 
         /* Portfolio Section */
@@ -242,26 +486,28 @@
 
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
         }
 
         .portfolio-item {
-            border-radius: 8px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: var(--shadow);
             position: relative;
+            background: var(--dark);
         }
 
         .portfolio-item img {
             width: 100%;
-            height: 250px;
+            height: 300px;
             object-fit: cover;
             transition: var(--transition);
         }
 
         .portfolio-item:hover img {
-            transform: scale(1.05);
+            transform: scale(1.1);
+            opacity: 0.9;
         }
 
         .portfolio-overlay {
@@ -269,49 +515,98 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(0,0,0,0.7);
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.95), transparent);
             color: white;
-            padding: 20px;
-            transform: translateY(100%);
+            padding: 40px 30px 30px;
+            transform: translateY(0);
             transition: var(--transition);
         }
 
-        .portfolio-item:hover .portfolio-overlay {
-            transform: translateY(0);
+        .portfolio-overlay h3 {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .portfolio-overlay p {
+            color: rgba(255, 255, 255, 0.9);
         }
 
         /* Team Section */
         .team {
-            background: #f5f7fa;
+            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
         }
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
         }
 
         .team-member {
             background: white;
-            border-radius: 8px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            text-align: center;
+            box-shadow: var(--shadow);
             transition: var(--transition);
+            position: relative;
         }
 
         .team-member:hover {
             transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
         }
 
-        .team-member img {
+        .team-member-img {
             width: 100%;
-            height: 250px;
+            height: 300px;
             object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .team-member:hover .team-member-img {
+            transform: scale(1.05);
         }
 
         .team-info {
-            padding: 20px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .team-info:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .team-social a {
+            width: 40px;
+            height: 40px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .team-social a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
         }
 
         /* Contact Section */
@@ -321,83 +616,128 @@
 
         .contact-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 80px;
         }
 
         .contact-info h3 {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .contact-details {
-            margin-bottom: 30px;
+            margin-bottom: 50px;
         }
 
         .contact-detail {
             display: flex;
-            align-items: center;
-            margin-bottom: 15px;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            gap: 20px;
         }
 
         .contact-detail i {
-            margin-right: 15px;
-            color: var(--primary);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
             font-size: 1.2rem;
+            flex-shrink: 0;
         }
 
         .contact-form input,
         .contact-form textarea {
             width: 100%;
-            padding: 12px 15px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            padding: 18px 25px;
+            margin-bottom: 25px;
+            border: 2px solid var(--gray-light);
+            border-radius: 12px;
             font-size: 1rem;
+            transition: var(--transition);
+            background: var(--light);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
         }
 
         .contact-form textarea {
-            height: 150px;
+            height: 180px;
             resize: vertical;
         }
 
         /* Notification Styles */
         .notification {
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 4px;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 12px;
             text-align: center;
             display: none;
+            font-weight: 500;
+            border-left: 5px solid transparent;
         }
 
         .notification.success {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            border-left-color: var(--success);
         }
 
         .notification.error {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
+            background-color: rgba(239, 68, 68, 0.1);
+            color: #EF4444;
+            border-left-color: #EF4444;
         }
 
         /* Footer */
         footer {
             background: var(--dark);
             color: white;
-            padding: 60px 0 30px;
+            padding: 100px 0 50px;
+            position: relative;
+        }
+
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+            margin-bottom: 70px;
         }
 
         .footer-column h3 {
-            margin-bottom: 20px;
-            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-size: 1.4rem;
+            color: white;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
         }
 
         .footer-links {
@@ -405,87 +745,121 @@
         }
 
         .footer-links li {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .footer-links a {
-            color: #ddd;
+            color: #CBD5E1;
             text-decoration: none;
             transition: var(--transition);
+            display: inline-block;
+            padding: 5px 0;
         }
 
         .footer-links a:hover {
             color: white;
-            padding-left: 5px;
+            transform: translateX(8px);
+        }
+
+        .footer-links i {
+            margin-right: 10px;
+            color: var(--secondary);
+            width: 20px;
         }
 
         .social-links {
             display: flex;
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 30px;
         }
 
         .social-links a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
             color: white;
+            font-size: 1.2rem;
             transition: var(--transition);
         }
 
         .social-links a:hover {
             background: var(--primary);
-            transform: translateY(-5px);
+            transform: translateY(-5px) rotate(5deg);
         }
 
         .copyright {
             text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 0.9rem;
-            color: #aaa;
+            padding-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94A3B8;
+            font-size: 0.95rem;
+        }
+
+        .copyright p {
+            color: #94A3B8;
+            margin-bottom: 0;
         }
 
         /* Responsive Design */
-        @media (max-width: 992px) {
+        @media (max-width: 1200px) {
             h1 {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
             
             h2 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
             .about-content {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            
+            .hero-buttons {
                 flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+                max-width: 300px;
             }
         }
 
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
-                top: 80px;
+                top: 90px;
                 left: 0;
                 width: 100%;
                 background: white;
                 flex-direction: column;
                 align-items: center;
-                padding: 20px 0;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                padding: 30px 0;
+                box-shadow: var(--shadow-lg);
                 transform: translateY(-150%);
                 transition: var(--transition);
+                z-index: 999;
+                gap: 20px;
             }
 
             .nav-links.active {
                 transform: translateY(0);
             }
 
-            .nav-links li {
-                margin: 15px 0;
+            .nav-links a {
+                font-size: 1.1rem;
             }
 
             .hamburger {
@@ -493,11 +867,61 @@
             }
 
             .hero {
-                padding: 120px 0 80px;
+                padding: 160px 0 80px;
             }
 
             .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
                 font-size: 2.2rem;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .logo-main {
+                font-size: 1.6rem;
+            }
+            
+            .logo-icon {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .logo-icon-inner {
+                width: 42px;
+                height: 42px;
+            }
+            
+            .logo-icon i {
+                font-size: 1.3rem;
+            }
+            
+            .services-grid,
+            .portfolio-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -507,7 +931,16 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="#" class="logo">Reef<span>bytes</span></a>
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <div class="logo-icon-inner"></div>
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="logo-text">
+                        <div class="logo-main">ReefbytesMV</div>
+                        <div class="logo-tagline">Software Engineering & Solutions</div>
+                    </div>
+                </a>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -526,24 +959,48 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <h1>Innovative Software Solutions</h1>
-            <p>We build cutting-edge software solutions that drive business growth and digital transformation for companies worldwide.</p>
-            <a href="#contact" class="btn">Get In Touch</a>
-            <a href="#services" class="btn btn-secondary">Our Services</a>
+            <div class="hero-content">
+                <h1>Building Digital Excellence</h1>
+                <p>We specialize in creating innovative software solutions that drive growth and digital transformation. Combining cutting-edge technology with strategic thinking to deliver exceptional results.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn">Start Your Project</a>
+                    <a href="#services" class="btn btn-secondary">
+                        <i class="fas fa-cogs"></i> Our Services
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
-            <h2>About Us</h2>
+            <h2>About ReefbytesMV</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>Transforming Ideas Into Digital Reality</h3>
-                    <p>Reefbytes is a premier software engineering and solutions development company with a passion for creating innovative digital products that solve complex business challenges.</p>
-                    <p>Founded in 2015, we've grown into a team of dedicated professionals specializing in web development, mobile applications, enterprise software, and cloud solutions.</p>
-                    <p>Our approach combines technical expertise with business acumen to deliver solutions that not only meet technical requirements but also drive tangible business value.</p>
-                    <a href="#contact" class="btn">Learn More</a>
+                    <h3>Transforming Businesses Through Technology</h3>
+                    <p>ReefbytesMV is a leading software engineering company dedicated to delivering innovative digital solutions that solve complex business challenges and drive sustainable growth.</p>
+                    <p>Founded with a vision to bridge the gap between business needs and technological possibilities, we combine deep technical expertise with strategic insight to create solutions that deliver real value.</p>
+                    <p>Our team of skilled engineers, designers, and strategists work collaboratively to transform your ideas into robust, scalable, and user-friendly software solutions.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">8+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">150+</div>
+                            <div class="stat-label">Projects Delivered</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">40+</div>
+                            <div class="stat-label">Expert Team</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Client Satisfaction</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="about-image">
                     <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Our Team">
@@ -555,49 +1012,49 @@
     <!-- Services Section -->
     <section class="services" id="services">
         <div class="container">
-            <h2>Our Services</h2>
+            <h2>Our Expertise</h2>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-laptop-code"></i>
                     </div>
                     <h3>Custom Software Development</h3>
-                    <p>We design and build bespoke software solutions tailored to your specific business needs and requirements.</p>
+                    <p>We design and build tailored software solutions that align perfectly with your business objectives and requirements.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <h3>Mobile App Development</h3>
-                    <p>Create engaging mobile experiences with our native and cross-platform app development services.</p>
+                    <p>Create powerful mobile experiences with our native and cross-platform app development expertise.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-cloud"></i>
                     </div>
-                    <h3>Cloud Solutions</h3>
-                    <p>Leverage the power of cloud computing with our scalable and secure cloud infrastructure solutions.</p>
+                    <h3>Cloud Solutions & DevOps</h3>
+                    <p>Build scalable, secure cloud infrastructure with our comprehensive DevOps and cloud engineering services.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-database"></i>
                     </div>
-                    <h3>Database Management</h3>
-                    <p>Optimize your data strategy with our comprehensive database design, implementation, and management services.</p>
+                    <h3>Enterprise Architecture</h3>
+                    <p>Design and implement robust enterprise systems and data management solutions that scale with your business.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
                     <h3>Cybersecurity</h3>
-                    <p>Protect your digital assets with our robust security solutions and vulnerability assessment services.</p>
+                    <p>Protect your digital assets with our comprehensive security assessments and implementation services.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-headset"></i>
+                        <i class="fas fa-brain"></i>
                     </div>
-                    <h3>IT Consulting</h3>
-                    <p>Get expert guidance on technology strategy, digital transformation, and IT infrastructure optimization.</p>
+                    <h3>AI & Machine Learning</h3>
+                    <p>Leverage artificial intelligence and machine learning to gain competitive advantage and drive innovation.</p>
                 </div>
             </div>
         </div>
@@ -606,27 +1063,27 @@
     <!-- Portfolio Section -->
     <section class="portfolio" id="portfolio">
         <div class="container">
-            <h2>Our Portfolio</h2>
+            <h2>Our Work</h2>
             <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="E-commerce Platform">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Enterprise Platform">
                     <div class="portfolio-overlay">
-                        <h3>E-commerce Platform</h3>
-                        <p>Custom online shopping solution with advanced inventory management</p>
+                        <h3>Enterprise SaaS Platform</h3>
+                        <p>Scalable cloud-based solution serving 10,000+ users with real-time analytics</p>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Healthcare Management System">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Healthcare System">
                     <div class="portfolio-overlay">
                         <h3>Healthcare Management System</h3>
-                        <p>Comprehensive patient and practice management software</p>
+                        <p>Compliance-driven platform for patient management and telemedicine services</p>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Financial Analytics Dashboard">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="FinTech Solution">
                     <div class="portfolio-overlay">
-                        <h3>Financial Analytics Dashboard</h3>
-                        <p>Real-time financial data visualization and reporting tool</p>
+                        <h3>FinTech Analytics Dashboard</h3>
+                        <p>Real-time financial intelligence platform with predictive analytics capabilities</p>
                     </div>
                 </div>
             </div>
@@ -636,34 +1093,58 @@
     <!-- Team Section -->
     <section class="team" id="team">
         <div class="container">
-            <h2>Our Team</h2>
+            <h2>Leadership Team</h2>
             <div class="team-grid">
                 <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="John Doe">
+                    <img class="team-member-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Alex Morgan">
                     <div class="team-info">
-                        <h3>John Doe</h3>
-                        <p>Chief Executive Officer</p>
+                        <h3>Ahmed Naashid</h3>
+                        <p>Founder&Chief Executive Officer</p>
+                        <p class="code-font">8+ Years in Technology and IT</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Jane Smith">
+                    <img class="team-member-img" src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Sarah Chen">
                     <div class="team-info">
-                        <h3>Jane Smith</h3>
+                        <h3>Sarah Chen</h3>
                         <p>Technical Director</p>
+                        <p class="code-font">Full-stack architect specialist</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Michael Johnson">
+                    <img class="team-member-img" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Michael Rodriguez">
                     <div class="team-info">
-                        <h3>Michael Johnson</h3>
-                        <p>Lead Developer</p>
+                        <h3>Michael Rodriguez</h3>
+                        <p>Lead Software Engineer</p>
+                        <p class="code-font">Cloud & DevOps expert</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Sarah Williams">
+                    <img class="team-member-img" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Priya Sharma">
                     <div class="team-info">
-                        <h3>Sarah Williams</h3>
-                        <p>UX/UI Designer</p>
+                        <h3>Priya Sharma</h3>
+                        <p>Head of Product Design</p>
+                        <p class="code-font">UX/UI & Design Systems</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -673,52 +1154,66 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <h2>Contact Us</h2>
+            <h2>Get In Touch</h2>
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3>Get In Touch</h3>
-                    <p>Ready to start your next project? Get in touch with our team to discuss how we can help bring your ideas to life.</p>
+                    <h3>Start Your Digital Journey</h3>
+                    <p>Ready to transform your business with cutting-edge software solutions? Our team is here to guide you through every step of your digital transformation.</p>
                     
                     <div class="contact-details">
                         <div class="contact-detail">
                             <i class="fas fa-map-marker-alt"></i>
                             <div>
-                                <h4>Our Office</h4>
-                                <p>123 Tech Street, Digital City, DC 12345</p>
+                                <h4>Headquarters</h4>
+                                <p>Digital Innovation Hub</p>
+                                <p>Hulhumale'</p>
+                                <p>Maldives</p>
                             </div>
                         </div>
                         <div class="contact-detail">
                             <i class="fas fa-phone"></i>
                             <div>
-                                <h4>Phone</h4>
-                                <p>+1 (555) 123-4567</p>
+                                <h4>Contact</h4>
+                                <p>+960 9677088</p>
+                                <p>Mon-Fri, 9AM-6PM PST</p>
                             </div>
                         </div>
                         <div class="contact-detail">
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <h4>Email</h4>
-                                <p>info@reefbytes.com</p>
+                                <p>Info@reefbytesmv.com</p>
+                                <p>support@reefbytesmv.com</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
                     </div>
                 </div>
                 
                 <div class="contact-form">
                     <div id="notification" class="notification"></div>
                     <form id="contactForm" action="https://formspree.io/f/xblvgzzl" method="POST">
-                        <input type="text" name="name" id="name" placeholder="Your Name" required>
-                        <input type="email" name="email" id="email" placeholder="Your Email" required>
-                        <input type="text" name="subject" id="subject" placeholder="Subject" required>
-                        <textarea name="message" id="message" placeholder="Your Message" required></textarea>
-                        <button type="submit" class="btn">Send Message</button>
+                        <input type="text" name="name" id="name" placeholder="Full Name" required>
+                        <input type="email" name="email" id="email" placeholder="Email Address" required>
+                        <input type="text" name="company" id="company" placeholder="Company Name">
+                        <select name="service" id="service" style="width: 100%; padding: 18px 25px; margin-bottom: 25px; border: 2px solid var(--gray-light); border-radius: 12px; font-size: 1rem; background: var(--light); font-family: 'Poppins', sans-serif;">
+                            <option value="">Select Service</option>
+                            <option value="custom-software">Custom Software Development</option>
+                            <option value="mobile-apps">Mobile App Development</option>
+                            <option value="cloud">Cloud Solutions</option>
+                            <option value="consulting">IT Consulting</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <textarea name="message" id="message" placeholder="Tell us about your project..." required></textarea>
+                        <button type="submit" class="btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
                     </form>
                 </div>
             </div>
@@ -730,48 +1225,50 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>Reefbytes</h3>
-                    <p>Transforming businesses through innovative software solutions and digital transformation services.</p>
+                    <h3>ReefbytesMV</h3>
+                    <p>Transforming businesses through innovative software solutions and strategic digital transformation.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
                     </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Custom Software Development</a></li>
+                        <li><a href="#services">Mobile App Development</a></li>
+                        <li><a href="#services">Cloud & DevOps</a></li>
+                        <li><a href="#services">Enterprise Solutions</a></li>
+                        <li><a href="#services">Cybersecurity</a></li>
+                        <li><a href="#services">AI & ML Solutions</a></li>
+                    </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About Us</a></li>
-                        <li><a href="#services">Services</a></li>
                         <li><a href="#portfolio">Portfolio</a></li>
                         <li><a href="#team">Our Team</a></li>
                         <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Custom Software Development</a></li>
-                        <li><a href="#">Mobile App Development</a></li>
-                        <li><a href="#">Cloud Solutions</a></li>
-                        <li><a href="#">Database Management</a></li>
-                        <li><a href="#">Cybersecurity</a></li>
-                        <li><a href="#">IT Consulting</a></li>
+                        <li><a href="careers.html">Careers</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Contact Info</h3>
                     <ul class="footer-links">
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Tech Street, Digital City</li>
-                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
-                        <li><i class="fas fa-envelope"></i> info@reefbytes.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Hulhumale' Maldives</li>
+                        <li><i class="fas fa-phone"></i> +960 9677088</li>
+                        <li><i class="fas fa-envelope"></i> info@reefbytesmv.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM PST</li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 Reefbytes. All Rights Reserved.</p>
+                <p>&copy; 2023 ReefbytesMV. All Rights Reserved. | Software Engineering & Solutions</p>
+                <p>Designed with <i class="fas fa-heart" style="color: var(--accent);"></i> for innovation</p>
             </div>
         </div>
     </footer>
@@ -780,19 +1277,32 @@
         // Mobile Navigation Toggle
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
+        const body = document.body;
 
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+            
+            // Prevent body scroll when menu is open
+            if (navLinks.classList.contains('active')) {
+                body.style.overflow = 'hidden';
+            } else {
+                body.style.overflow = 'auto';
+            }
         });
 
         // Close mobile menu when clicking on a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                body.style.overflow = 'auto';
             });
         });
 
-        // Contact Form Submission with Formspree
+        // Contact Form Submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -802,11 +1312,10 @@
             // Simple validation
             const name = form.name.value.trim();
             const email = form.email.value.trim();
-            const subject = form.subject.value.trim();
             const message = form.message.value.trim();
             
-            if(!name || !email || !subject || !message) {
-                showNotification('Please fill in all fields.', 'error');
+            if(!name || !email || !message) {
+                showNotification('Please fill in all required fields.', 'error');
                 return;
             }
             
@@ -819,8 +1328,8 @@
             
             // Show loading state
             const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             submitBtn.disabled = true;
             
             // Submit to Formspree
@@ -833,7 +1342,7 @@
             })
             .then(response => {
                 if (response.ok) {
-                    showNotification('Thank you for your message! We will get back to you soon.', 'success');
+                    showNotification('Thank you for your message! Our team will contact you within 24 hours.', 'success');
                     form.reset();
                 } else {
                     throw new Error('Form submission failed');
@@ -841,11 +1350,11 @@
             })
             .catch(error => {
                 console.error('Error:', error);
-                showNotification('There was an error sending your message. Please try again.', 'error');
+                showNotification('There was an error sending your message. Please try again or email us directly.', 'error');
             })
             .finally(() => {
                 // Reset button state
-                submitBtn.textContent = originalText;
+                submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
             });
         });
@@ -874,11 +1383,23 @@
                 const targetElement = document.querySelector(targetId);
                 if(targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetElement.offsetTop - 100,
                         behavior: 'smooth'
                     });
                 }
             });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.08)';
+            }
         });
     </script>
 </body>
