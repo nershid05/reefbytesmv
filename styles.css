@@ -293,7 +293,9 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            background:
+                linear-gradient(135deg, rgba(15, 23, 42, 0.82) 0%, rgba(30, 41, 59, 0.78) 100%),
+                url('assets/hero-bg.png') center center / cover no-repeat;
             color: white;
             padding: 180px 0 120px;
             position: relative;
@@ -307,9 +309,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+            background:
+                radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.25) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.25) 0%, transparent 50%);
         }
 
         .hero-content {
