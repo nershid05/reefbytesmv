@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/logo-icon-nobg.png">
     <title>Careers at ReefbytesMV | Join Our Team</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         /* Base Styles */
         :root {
@@ -36,14 +37,14 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: var(--light);
             color: var(--dark);
             line-height: 1.7;
         }
 
         .code-font {
-            font-family: 'Roboto Mono', monospace;
+            font-family: 'JetBrains Mono', monospace;
         }
 
         .container {
@@ -186,32 +187,11 @@
             text-decoration: none;
         }
 
-        .logo-icon {
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .logo-icon-inner {
-            width: 42px;
-            height: 42px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .logo-icon i {
-            font-size: 1.3rem;
-            color: white;
-            z-index: 1;
-            position: relative;
+        .logo-img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            flex-shrink: 0;
         }
 
         .logo-text {
@@ -236,7 +216,7 @@
             font-weight: 500;
             letter-spacing: 1px;
             text-transform: uppercase;
-            font-family: 'Roboto Mono', monospace;
+            font-family: 'JetBrains Mono', monospace;
         }
 
         .nav-links {
@@ -389,7 +369,7 @@
             border: 2px solid var(--gray-light);
             border-radius: var(--radius);
             background: white;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 1rem;
             min-width: 200px;
             cursor: pointer;
@@ -575,7 +555,7 @@
             font-size: 1rem;
             transition: var(--transition);
             background: var(--light);
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
         .application-form input:focus,
@@ -900,11 +880,8 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="#" class="logo">
-                    <div class="logo-icon">
-                        <div class="logo-icon-inner"></div>
-                        <i class="fas fa-code"></i>
-                    </div>
+                <a href="index.html" class="logo">
+                    <img src="assets/logo-icon-nobg.png" alt="ReefbytesMV Logo" class="logo-img">
                     <div class="logo-text">
                         <div class="logo-main">ReefbytesMV</div>
                         <div class="logo-tagline">Software Engineering & Solutions</div>
