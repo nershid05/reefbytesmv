@@ -181,55 +181,11 @@
             text-decoration: none;
         }
 
-        .logo-icon {
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .logo-icon-inner {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .logo-icon-inner:before {
-            content: '';
-            position: absolute;
-            width: 120%;
-            height: 120%;
-            background: conic-gradient(from 0deg, transparent, var(--secondary), transparent);
-            animation: rotate 3s linear infinite;
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .logo-icon-inner:after {
-            content: '';
-            position: absolute;
-            width: 46px;
-            height: 46px;
-            background: white;
-            border-radius: 10px;
-        }
-
-        .logo-icon i {
-            font-size: 1.5rem;
-            color: var(--primary);
-            z-index: 1;
-            position: relative;
+        .logo-img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            flex-shrink: 0;
         }
 
         .logo-text {
@@ -910,20 +866,6 @@
             
             .logo-main {
                 font-size: 1.6rem;
-            }
-            
-            .logo-icon {
-                width: 50px;
-                height: 50px;
-            }
-            
-            .logo-icon-inner {
-                width: 42px;
-                height: 42px;
-            }
-            
-            .logo-icon i {
-                font-size: 1.3rem;
             }
             
             .services-grid,
