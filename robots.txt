@@ -1,4 +1,51 @@
+# robots.txt — www.reefbytesmv.com
+# Last updated: 2026-04-03
+
+# ── All crawlers (default) ────────────────────────────────
 User-agent: *
 Allow: /
+Disallow: /server.py
+Disallow: /.local/
 
+# ── Googlebot ─────────────────────────────────────────────
+User-agent: Googlebot
+Allow: /
+Disallow: /server.py
+Disallow: /.local/
+
+# ── Google Image Bot ──────────────────────────────────────
+User-agent: Googlebot-Image
+Allow: /assets/
+Allow: /
+
+# ── Bingbot ───────────────────────────────────────────────
+User-agent: Bingbot
+Allow: /
+Disallow: /server.py
+Crawl-delay: 1
+
+# ── Yandex ────────────────────────────────────────────────
+User-agent: Yandex
+Allow: /
+Crawl-delay: 2
+
+# ── SEO tool crawlers (rate-limit to save bandwidth) ──────
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: DotBot
+Crawl-delay: 10
+
+# ── Abusive / low-quality bots ────────────────────────────
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+# ── Sitemaps ──────────────────────────────────────────────
 Sitemap: https://www.reefbytesmv.com/sitemap.xml
+Sitemap: https://www.reefbytesmv.com/sitemap-images.xml

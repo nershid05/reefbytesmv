@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Homepage images -->
+  <url>
+    <loc>https://www.reefbytesmv.com/</loc>
+    <image:image>
+      <image:loc>https://www.reefbytesmv.com/assets/logo-icon-nobg.png</image:loc>
+      <image:title>ReefbytesMV Logo</image:title>
+      <image:caption>ReefbytesMV — software and web development company based in Malé, Maldives</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.reefbytesmv.com/assets/hero-bg.png</image:loc>
+      <image:title>Web and Software Development in Maldives</image:title>
+      <image:caption>ReefbytesMV hero — web development and custom software services in the Maldives</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&amp;fit=crop&amp;w=900&amp;q=80</image:loc>
+      <image:title>ReefbytesMV Software Development Team in Maldives</image:title>
+      <image:caption>The ReefbytesMV team collaborating on software projects in the Maldives</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&amp;fit=crop&amp;w=900&amp;q=80</image:loc>
+      <image:title>Enterprise SaaS Platform — ReefbytesMV Portfolio</image:title>
+      <image:caption>Enterprise SaaS platform developed by ReefbytesMV serving 10,000+ users</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&amp;fit=crop&amp;w=900&amp;q=80</image:loc>
+      <image:title>Healthcare Management System — ReefbytesMV Portfolio</image:title>
+      <image:caption>Healthcare management system built by ReefbytesMV for patient care in the Maldives</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=900&amp;q=80</image:loc>
+      <image:title>FinTech Analytics Dashboard — ReefbytesMV Portfolio</image:title>
+      <image:caption>AI-powered FinTech analytics dashboard developed by ReefbytesMV</image:caption>
+    </image:image>
+  </url>
+
+</urlset>
