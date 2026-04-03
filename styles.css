@@ -631,3 +631,54 @@ footer {
 @media (max-width: 480px) {
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ── Skip Link (Accessibility) ─────────────────── */
+.skip-link {
+  position: absolute; top: -100%; left: 16px;
+  background: var(--blue); color: #fff;
+  padding: 10px 20px; border-radius: 0 0 var(--r-md) var(--r-md);
+  font-size: 0.85rem; font-weight: 600; z-index: 9999;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 0; }
+
+/* ── FAQ ───────────────────────────────────────── */
+.faq { padding: 100px 0; }
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 10px;
+}
+.faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 0;
+  overflow: hidden;
+  transition: var(--trans);
+}
+.faq-item[open] {
+  border-color: rgba(37,99,235,0.35);
+  background: rgba(37,99,235,0.04);
+}
+.faq-item summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 22px 26px; cursor: pointer;
+  font-size: 0.97rem; font-weight: 600; color: var(--text-1);
+  list-style: none; user-select: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary span { flex: 1; }
+.faq-icon { font-size: 0.8rem; color: var(--blue-light); transition: transform 0.25s; flex-shrink: 0; }
+.faq-item[open] .faq-icon { transform: rotate(45deg); }
+.faq-item p {
+  padding: 0 26px 22px;
+  font-size: 0.9rem; color: var(--text-2); line-height: 1.8;
+}
+.faq-item p a { color: var(--blue-light); }
+.faq-item p a:hover { text-decoration: underline; }
+
+@media (max-width: 768px) {
+  .faq-grid { grid-template-columns: 1fr; }
+}
